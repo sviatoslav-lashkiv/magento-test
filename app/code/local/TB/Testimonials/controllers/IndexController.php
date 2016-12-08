@@ -9,6 +9,39 @@ class TB_Testimonials_IndexController extends Mage_Core_Controller_Front_Action
         $this->renderLayout();
     }
 
+    public function newAction()
+    {
+        $this->_forward('edit');
+    }
+
+    public function saveAction()
+    {
+        if ($data = $this->getRequest()->getPost()) {
+            try {
+                $model = Mage::getModel('tbtestimonials/testimonials');
+                $model->setData($data)->setId($this->getRequest()->getParam('id'));
+                if(!$model->getCreated()){
+                    $model->setCreated(now());
+                }
+                $model->save();
+
+                Mage::getSingleton('adminhtml/session')->addSuccess($this->__('Testimonials was saved successfully'));
+                Mage::getSingleton('adminhtml/session')->setFormData(false);
+                $this->_redirect('*/*/');
+            } catch (Exception $e) {
+                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+                Mage::getSingleton('adminhtml/session')->setFormData($data);
+                $this->_redirect('*/*/edit', array(
+                    'id' => $this->getRequest()->getParam('id')
+                ));
+            }
+            return;
+        }
+        Mage::getSingleton('adminhtml/session')->addError($this->__('Unable to find item to save'));
+        $this->_redirect('*/*/');
+    }
+
+
     public function viewAction()
     {
         $testimonialId = Mage::app()->getRequest()->getParam('id', 0);
@@ -26,21 +59,4 @@ class TB_Testimonials_IndexController extends Mage_Core_Controller_Front_Action
     }
 
 
-    protected function _prepareLayout()
-    {
-        parent::_prepareLayout();
-
-        $pager = $this->getLayout()->createBlock('page/html_pager', 'custom.pager');
-        $pager->setAvailableLimit(array(5=>5,10=>10,20=>20,'all'=>'all'));
-        $pager->setCollection($this->getTestimonialsCollection());
-        $this->setChild('pager', $pager);
-        $this->getTestimonialsCollection()->load();
-        return $this;
-    }
-
-    public function getPagerHtml()
-    {
-        return $this->getChildHtml('pager');
-    }
-	
 }

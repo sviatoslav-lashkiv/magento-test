@@ -3,11 +3,13 @@
 class TB_Testimonials_Block_Testimonials extends Mage_Core_Block_Template
 {
 
-    public function getTestimonialsCollection()
+    public function __construct()
     {
+        parent::__construct();
         $testimonialsCollection = Mage::getModel('tbtestimonials/testimonials')->getCollection();
         $testimonialsCollection->setOrder('created', 'DESC');
-        return $testimonialsCollection;
+        $this->setTestimonialsCollection($testimonialsCollection);
+        return $this;
     }
 
     /*public function _prepareLayout()
@@ -19,11 +21,12 @@ class TB_Testimonials_Block_Testimonials extends Mage_Core_Block_Template
     {
         parent::_prepareLayout();
 
-        $pager = $this->getLayout()->createBlock('page/html_pager', 'custom.pager');
+        $pager = $this->getLayout()->createBlock('page/html_pager', 'testimonialsPager');
         $pager->setAvailableLimit(array(5 => 5, 10 => 10, 20 => 20, 'all' => 'all'));
         $pager->setCollection($this->getTestimonialsCollection());
         $this->setChild('pager', $pager);
         $this->getTestimonialsCollection()->load();
+
         return $this;
     }
 

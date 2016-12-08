@@ -8,6 +8,7 @@ $testimonialsViewUrl = Mage::getUrl('testimonials/index/view');
                     <?php echo $this->__('Submit Your Testimonial') ?>
     </button>
 </div>
+
 <?php foreach ($testimonials as $item): ?>
 	<div class="content">
 		<div class="testimonial">
@@ -17,5 +18,4 @@ $testimonialsViewUrl = Mage::getUrl('testimonials/index/view');
 		<span class="user-name"><?php echo $item->getUserName(); ?></span>
 	</div>
 <?php endforeach; ?>
-
 <?php echo $this->getPagerHtml(); ?>
