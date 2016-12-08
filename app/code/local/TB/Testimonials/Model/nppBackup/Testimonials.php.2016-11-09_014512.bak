@@ -1,0 +1,28 @@
+<?php
+
+class TB_Testimonials_Model_Testimonials extends Mage_Core_Model_Abstract
+{
+
+    public function _construct()
+    {
+        parent::_construct();
+        $this->_init('tbtestimonials/testimonials');
+    }
+	
+				protected function _prepareLayout()
+			{
+					parent::_prepareLayout();
+
+					$pager = $this->getLayout()->createBlock('page/html_pager', 'custom.pager')
+							->setCollection($this->getTestimonialsCollection()); //call your own collection getter here, name it something better than getCollection, please; *or* your call to getResourceModel()
+					$this->setChild('pager', $pager);
+					return $this;
+			}
+
+			public function getPagerHtml()
+			{
+					return $this->getChildHtml('pager');
+			}
+	
+	
+}

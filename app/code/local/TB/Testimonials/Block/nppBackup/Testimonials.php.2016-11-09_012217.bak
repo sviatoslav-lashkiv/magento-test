@@ -1,0 +1,32 @@
+<?php
+
+class TB_Testimonials_Block_Testimonials extends Mage_Core_Block_Template
+{
+
+    public function getTestimonialsCollection()
+    {
+        $testimonialsCollection = Mage::getModel('tbtestimonials/testimonials')->getCollection();
+        $testimonialsCollection->setOrder('created', 'DESC');
+        return $testimonialsCollection;
+    }
+	
+	public function _prepareLayout()
+    {
+        return parent::_prepareLayout();
+    }
+		
+	protected function _prepareLayout()
+	{
+			parent::_prepareLayout();
+
+			$pager = $this->getLayout()->createBlock('page/html_pager', 'your.custom.blockname.pager')
+					->setCollection($this->getTestimonialsCollection()); //call your own collection getter here, name it something better than getCollection, please; *or* your call to getResourceModel()
+			$this->setChild('pager', $pager);
+			return $this;
+	}
+
+	public function getPagerHtml()
+	{
+			return $this->getChildHtml('pager');
+	}
+}

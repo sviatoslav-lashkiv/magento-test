@@ -1,0 +1,36 @@
+<layout version="0.1.0">
+    <default>
+				
+				<reference name="top.links">
+						<action method="addLink" translate="label title" after="cart_sidebar">
+							<label>Testimonials</label>
+							<url>testimonials</url>
+							<title>Testimonials</title>
+							<prepare>true</prepare>
+							<urlParams helper="core/url/getHomeUrl"/>
+							<position>90</position>
+						</action>
+						<remove name="checkout_cart_link"/>
+						<block type="checkout/links" name="checkout_cart_link_custom">
+							<action method="addCartLink"></action>
+						</block>
+
+
+						<action method="removeLinkByUrl"><url helper="customer/getRegisterUrl"/></action>
+				</reference>
+				
+				<reference name="head">
+				
+						<!--Adding JS Files Styles-->
+						<action method="addItem"><type>skin_js</type><name>js/jquery-1.11.3.js</name><params/></action>	
+						<action method="addItem"><type>skin_js</type><name>js/bootstrap.min.js</name><params/></action>											
+						
+						<!--Adding CSS Files Styles-->
+						<action method="addCss"><stylesheet>css/bootstrap.min.css</stylesheet><params/></action>
+						<action method="addCss"><stylesheet>css/my_styles.css</stylesheet><params/></action>
+						<action method="addCss"><stylesheet>css/tb/testimonials.css</stylesheet><params/></action>
+						
+				</reference>
+				
+		</default>
+</layout>

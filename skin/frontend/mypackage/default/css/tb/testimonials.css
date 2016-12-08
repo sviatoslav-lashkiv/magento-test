@@ -1,0 +1,62 @@
+/*
+connect in app\design\frontend\mypackage\default\layout\local.xml
+*/
+.tbtestimonials-index-index .content-block {
+	padding: 0 20px 30px;
+}
+.testimonials-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 25px 0;
+	color: #636363;
+}
+.testimonials-header-title{
+	font-weight: 900;
+	margin: 0;
+}
+.testimonials-header-button {
+	border: none;
+	font-size: 14px;
+	color: #fff;
+	font-weight: bold;
+	background-color:#1EBD9D;
+	padding: 6px 15px;
+}
+.testimonials-header-button:hover {
+	background-color:#6FCFBC;
+}
+
+.content {
+	font-family: Helvetica, sans-serif;
+	line-height: 160%;
+	font-weight: 500;
+	color:#675555;
+	font-size: 14px;
+	margin-bottom: 30px;
+}
+.content>.testimonial {
+	background-color:#f3f3f3;
+	padding: 15px 25px 15px 15px;
+	border-radius: 1px;
+	-webkit-border-radius: 1px;
+	-moz-border-radius: 1px;
+	position: relative;
+	margin-bottom: 20px;
+}
+.testimonial-arrow {
+	width: 24px;
+	height: 24px;
+	background-color: #f3f3f3;
+	position: absolute;
+	left: 40px;
+	bottom: -12px;
+	-moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.content>.user-name {
+	font-weight: bold;
+	padding-left: 20px;
+}

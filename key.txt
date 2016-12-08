@@ -1,0 +1,15 @@
+514fc6e1afa17f38ac8a49e096f7f928
+
+
+admin panel
+admin
+zzz0000
+
+
+
+db name
+magento
+
+user db name 
+magento
+0000

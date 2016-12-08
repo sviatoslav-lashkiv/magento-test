@@ -1,0 +1,25 @@
+<?php
+
+class TB_Testimonials_Block_Testimonials extends Mage_Core_Block_Template
+{
+
+    public function getTestimonialsCollection()
+    {
+        $testimonialsCollection = Mage::getModel('tbtestimonials/testimonials')->getCollection();
+        $testimonialsCollection->setOrder('created', 'DESC');
+        return $testimonialsCollection;
+    }
+		
+		public function _prepareLayout()
+			{
+					return parent::_prepareLayout();
+			}	
+
+
+	
+
+	
+	
+	
+	
+}

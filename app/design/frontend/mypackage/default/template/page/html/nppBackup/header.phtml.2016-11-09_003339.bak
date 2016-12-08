@@ -1,0 +1,52 @@
+
+	<div class="container header">
+
+				<div class="row top-header">
+						<div class="col-md-8">
+							<div class="top-header-nav">
+									<?php echo $this->getChildHtml('topLinks') ?>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="top-header-lang text-right">
+									<?php echo $this->getChildHtml('store_language') ?>
+							</div>
+						</div>
+				</div>
+
+				<div class="row">
+					<div class="main-header">
+						<div class="col-md-3">
+							<div class="welcome-title">
+								<p><?php echo $this->getChildHtml('welcome') ?> <?php echo $this->getAdditionalHtml() ?></p>
+							</div>
+						</div>
+						
+						<div class="col-md-9">
+							<div class="main-nav">
+								<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('site_nav')->toHtml() ?>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row bottom-header">
+					<div class="company-logo">
+						<a href="<?php echo $this->getUrl('') ?>">
+              <img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+						</a>
+					</div>
+					<div class="bottom-nav">
+						<div class="search-input">
+							<?php echo $this->getChildHtml('topSearch') ?>
+						</div>
+						<div id="header-nav" class="catalog-nav skip-content">
+							<!--?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('catalog_navigation')->toHtml() ?-->
+							<?php echo $this->getChildHtml('topMenu') ?>
+						</div>
+					</div>
+				</div>
+
+	</div>
+	
+	<?php echo $this->getChildHtml('topContainer'); ?>
