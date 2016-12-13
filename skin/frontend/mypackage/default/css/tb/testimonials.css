@@ -1,21 +1,22 @@
 /*
 connect in app\design\frontend\mypackage\default\layout\local.xml
 */
-.tbtestimonials-index-index .content-block {
+.tbtestimonials-index-index .content-block,
+.tbtestimonials-new-index .content-block{
 	padding: 0 20px 30px;
 }
 .testimonials-header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin: 25px 0;
+	margin-bottom: 25px;
 	color: #636363;
 }
 .testimonials-header-title{
 	font-weight: 900;
 	margin: 0;
 }
-.testimonials-header-button {
+.testi-button {
 	border: none;
 	font-size: 14px;
 	color: #fff;
@@ -23,10 +24,11 @@ connect in app\design\frontend\mypackage\default\layout\local.xml
 	background-color:#1EBD9D;
 	padding: 6px 15px;
 }
-.testimonials-header-button:hover {
+.testi-button:hover {
 	background-color:#6FCFBC;
 }
 
+/* Content */
 .content {
 	font-family: Helvetica, sans-serif;
 	line-height: 160%;

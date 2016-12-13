@@ -9,45 +9,12 @@ class TB_Testimonials_IndexController extends Mage_Core_Controller_Front_Action
         $this->renderLayout();
     }
 
-    public function newAction()
-    {
-        $this->_forward('edit');
-    }
-
-    public function saveAction()
-    {
-        if ($data = $this->getRequest()->getPost()) {
-            try {
-                $model = Mage::getModel('tbtestimonials/testimonials');
-                $model->setData($data)->setId($this->getRequest()->getParam('id'));
-                if(!$model->getCreated()){
-                    $model->setCreated(now());
-                }
-                $model->save();
-
-                Mage::getSingleton('adminhtml/session')->addSuccess($this->__('Testimonials was saved successfully'));
-                Mage::getSingleton('adminhtml/session')->setFormData(false);
-                $this->_redirect('*/*/');
-            } catch (Exception $e) {
-                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
-                Mage::getSingleton('adminhtml/session')->setFormData($data);
-                $this->_redirect('*/*/edit', array(
-                    'id' => $this->getRequest()->getParam('id')
-                ));
-            }
-            return;
-        }
-        Mage::getSingleton('adminhtml/session')->addError($this->__('Unable to find item to save'));
-        $this->_redirect('*/*/');
-    }
-
-
     public function viewAction()
     {
         $testimonialId = Mage::app()->getRequest()->getParam('id', 0);
         $testimonials = Mage::getModel('tbtestimonials/testimonials')->load($testimonialId);
 
-		if ($testimonials->getId() > 0) {
+        if ($testimonials->getId() > 0) {
             $this->loadLayout();
             $this->getLayout()->getBlock('testimonials.content')->assign(array(
                 "testimonialsItem" => $testimonials,
@@ -58,5 +25,36 @@ class TB_Testimonials_IndexController extends Mage_Core_Controller_Front_Action
         }
     }
 
+    public function newAction()
+    {
+        $this->loadLayout();
+        $this->renderLayout();
+        //$layoutHandles = $this->getLayout()->getUpdate()->getHandles();
+        //echo '<pre>' . print_r($layoutHandles, true) . '</pre>';
+    }
+
+    public function postAction()
+    {
+        $this->_initLayoutMessages('customer/session');
+
+        if ($data = $this->getRequest()->getPost()) {
+            try {
+                $model = Mage::getModel('tbtestimonials/testimonials');
+                $model->setStoreId(Mage::app()->getStore()->getStoreId());
+                $model->setUserName($data['user_name']);
+                $model->setEmail($data['email']);
+                $model->setCreated(now());
+                $model->setContent($data['content']);
+                $model->save();
+                Mage::getSingleton('customer/session')->addSuccess($this->__('Testimonials was saved successfully'));
+            } catch (Exception $e) {
+                Mage::getSingleton('customer/session')->addError($e->getMessage());
+                Mage::getSingleton('customer/session')->setFormData($data);
+                $this->_redirectReferer();
+                return;
+            }
+        }
+        $this->_redirect('*/*/');
+    }
 
 }

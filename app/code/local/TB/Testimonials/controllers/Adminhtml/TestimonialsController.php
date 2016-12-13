@@ -17,7 +17,7 @@ class TB_Testimonials_Adminhtml_TestimonialsController extends Mage_Adminhtml_Co
 
     public function editAction()
     {
-        $id = (int) $this->getRequest()->getParam('id');
+        $id = (int)$this->getRequest()->getParam('id');
         Mage::register('current_testimonials', Mage::getModel('tbtestimonials/testimonials')->load($id));
 
         $this->loadLayout()->_setActiveMenu('tbtestimonials');
@@ -31,7 +31,7 @@ class TB_Testimonials_Adminhtml_TestimonialsController extends Mage_Adminhtml_Co
             try {
                 $model = Mage::getModel('tbtestimonials/testimonials');
                 $model->setData($data)->setId($this->getRequest()->getParam('id'));
-                if(!$model->getCreated()){
+                if (!$model->getCreated()) {
                     $model->setCreated(now());
                 }
                 $model->save();
@@ -65,7 +65,7 @@ class TB_Testimonials_Adminhtml_TestimonialsController extends Mage_Adminhtml_Co
         }
         $this->_redirect('*/*/');
     }
-	
+
     public function massDeleteAction()
     {
         $testimonials = $this->getRequest()->getParam('testimonials', null);

@@ -23,7 +23,7 @@ HEADER
 	color: #535355;
 }
 .form-language label {
-	font-weight: normal;
+	font-weight: bold;
 }
 .top-header-lang select {
 	border: none;
@@ -148,8 +148,9 @@ li.view-all {
 /*=============
 CONTENT BLOCK
 ==============*/
-.content-block {
-	padding-bottom: 30px;
+.container.content-block{
+	padding-top: 25px;
+	padding-bottom: 25px;
 }
 .content-block, .footer-block{
 	background-color:#FFF;
@@ -221,7 +222,6 @@ FOOTER
 
 /* Right column */
 .compare-products-title {
-	margin-top: 25px;
 	font-size: 16px;
 	font-weight: bold;
 	color: #636363;

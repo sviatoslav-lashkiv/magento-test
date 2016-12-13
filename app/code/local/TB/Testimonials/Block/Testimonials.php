@@ -12,11 +12,6 @@ class TB_Testimonials_Block_Testimonials extends Mage_Core_Block_Template
         return $this;
     }
 
-    /*public function _prepareLayout()
-        {
-                return parent::_prepareLayout();
-        }	*/
-
     protected function _prepareLayout()
     {
         parent::_prepareLayout();
@@ -34,4 +29,5 @@ class TB_Testimonials_Block_Testimonials extends Mage_Core_Block_Template
     {
         return $this->getChildHtml('pager');
     }
+
 }
