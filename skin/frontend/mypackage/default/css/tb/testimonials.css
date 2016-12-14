@@ -91,7 +91,6 @@ connect in app\design\frontend\mypackage\default\layout\local.xml
 .pager a.next:before, .pager a.next:hover:before {
 	border-left: 4px solid #1EBD9D;
 }
-
 .pager .limiter select {
 	padding: 0 38px 0 5px;
 	border-radius: 5px;
