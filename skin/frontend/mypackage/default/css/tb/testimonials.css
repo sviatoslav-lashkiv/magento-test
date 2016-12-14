@@ -2,100 +2,113 @@
 connect in app\design\frontend\mypackage\default\layout\local.xml
 */
 .tbtestimonials-index-index .content-block,
-.tbtestimonials-new-index .content-block{
-	padding: 0 20px 30px;
+.tbtestimonials-new-index .content-block {
+    padding: 0 20px 30px;
 }
+
 .testimonials-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 25px;
-	color: #636363;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    color: #636363;
 }
-.testimonials-header-title{
-	font-weight: 900;
-	margin: 0;
+
+.testimonials-header-title {
+    font-weight: 900;
+    margin: 0;
 }
+
 .testi-button {
-	border: none;
-	font-size: 14px;
-	color: #fff;
-	font-weight: bold;
-	background-color:#1EBD9D;
-	padding: 6px 15px;
+    border: none;
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
+    background-color: #1EBD9D;
+    padding: 6px 15px;
 }
+
 .testi-button:hover {
-	background-color:#6FCFBC;
+    background-color: #6FCFBC;
 }
 
 /* Content */
 .content {
-	font-family: Helvetica, sans-serif;
-	line-height: 160%;
-	font-weight: 500;
-	color:#675555;
-	font-size: 14px;
-	margin-bottom: 30px;
+    font-family: Helvetica, sans-serif;
+    line-height: 160%;
+    font-weight: 500;
+    color: #675555;
+    font-size: 14px;
+    margin-bottom: 30px;
 }
-.content>.testimonial {
-	background-color:#f3f3f3;
-	padding: 15px 25px 15px 15px;
-	border-radius: 1px;
-	-webkit-border-radius: 1px;
-	-moz-border-radius: 1px;
-	position: relative;
-	margin-bottom: 20px;
+
+.content > .testimonial {
+    background-color: #f3f3f3;
+    padding: 15px 25px 15px 15px;
+    border-radius: 1px;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    position: relative;
+    margin-bottom: 20px;
 }
+
 .testimonial-arrow {
-	width: 24px;
-	height: 24px;
-	background-color: #f3f3f3;
-	position: absolute;
-	left: 40px;
-	bottom: -12px;
-	-moz-transform: rotate(45deg);
+    width: 24px;
+    height: 24px;
+    background-color: #f3f3f3;
+    position: absolute;
+    left: 40px;
+    bottom: -12px;
+    -moz-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-.content>.user-name {
-	font-weight: bold;
-	padding-left: 20px;
+
+.content > .user-name {
+    font-weight: bold;
+    padding-left: 20px;
 }
 
 /* Pager */
 .pager.pager-no-toolbar {
-	width: 100%;
-	padding-top: 7px;
-	border-top: 1px solid #ECECEC;
-	border-bottom: 1px solid #ECECEC;
+    width: 100%;
+    padding-top: 7px;
+    border-top: 1px solid #ECECEC;
+    border-bottom: 1px solid #ECECEC;
 }
+
 .pages ol::before {
-	content: "Page: ";
-	font-weight: bold;
-	float: left;
-	padding-right: 10px;
+    content: "Page: ";
+    font-weight: bold;
+    float: left;
+    padding-right: 10px;
 }
-.pager li>a:focus, .pager li>a:hover {
-	background-color: transparent;
-	font-weight: bold;
+
+.pager li > a:focus, .pager li > a:hover {
+    background-color: transparent;
+    font-weight: bold;
 }
-.pages li>a, .pager a.next.i-next, .pager a.previous.i-previous  {
-	border: none;
-	padding: 0;
-	color: #1EBD9D;
+
+.pages li > a, .pager a.next.i-next, .pager a.previous.i-previous {
+    border: none;
+    padding: 0;
+    color: #1EBD9D;
 }
+
 .pager a.previous:before, .pager a.previous:hover:before {
-	border-right: 4px solid #1EBD9D;
+    border-right: 4px solid #1EBD9D;
 }
+
 .pager a.next:before, .pager a.next:hover:before {
-	border-left: 4px solid #1EBD9D;
+    border-left: 4px solid #1EBD9D;
 }
+
 .pager .limiter select {
-	padding: 0 38px 0 5px;
-	border-radius: 5px;
-	-webkit-appearance: none;
-	background-image: url("data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAaCAYAAACkVDyJAAAAlElEQVRIx+2VwQ3AIAhFwTiFi7KC7uYGHo1z0Et7MWkjaEiaQOJBDzy/wgdqrXwHWKyAiGAZDnSgHBhC+IfCUgqbKXxgGqhY4QyRQkUK35KLoK01iZd+xZKXRuEfbvdQPPGkAABEhMeLhohE5yfaAufk93791r13zQDmnLNqcOMYg1NKmoJgTRHtmDeaWZvPQweaAi8PXSmZJU3QRAAAAABJRU5ErkJggg==");
-	background-position: right center;
-	background-repeat: no-repeat;
+    padding: 0 38px 0 5px;
+    border-radius: 5px;
+    -webkit-appearance: none;
+    background-image: url("data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAaCAYAAACkVDyJAAAAlElEQVRIx+2VwQ3AIAhFwTiFi7KC7uYGHo1z0Et7MWkjaEiaQOJBDzy/wgdqrXwHWKyAiGAZDnSgHBhC+IfCUgqbKXxgGqhY4QyRQkUK35KLoK01iZd+xZKXRuEfbvdQPPGkAABEhMeLhohE5yfaAufk93791r13zQDmnLNqcOMYg1NKmoJgTRHtmDeaWZvPQweaAi8PXSmZJU3QRAAAAABJRU5ErkJggg==");
+    background-position: right center;
+    background-repeat: no-repeat;
 }
