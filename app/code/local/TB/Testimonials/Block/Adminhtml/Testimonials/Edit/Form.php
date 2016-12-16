@@ -21,10 +21,10 @@ class TB_Testimonials_Block_Adminhtml_Testimonials_Edit_Form extends Mage_Adminh
 
         $fieldset = $form->addFieldset('testimonials_form', array('legend' => $helper->__('Testimonials Information')));
 
-        $fieldset->addField('user_name', 'text', array(
-            'label' => $helper->__('User Name'),
+        $fieldset->addField('customer_id', 'text', array(
+            'label' => $helper->__('Customer ID'),
             'required' => true,
-            'name' => 'user_name',
+            'name' => 'customer_id',
         ));
 
         $fieldset->addField('content', 'editor', array(

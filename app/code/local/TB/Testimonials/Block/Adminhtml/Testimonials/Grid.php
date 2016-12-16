@@ -20,10 +20,9 @@ class TB_Testimonials_Block_Adminhtml_Testimonials_Grid extends Mage_Adminhtml_B
             'index' => 'testimonial_id'
         ));
 
-        $this->addColumn('user_name', array(
-            'header' => $helper->__('User Name'),
-            'index' => 'user_name',
-            'type' => 'text',
+        $this->addColumn('customer_id', array(
+            'header' => $helper->__('Customer ID'),
+            'index' => 'customer_id',
         ));
 		
 		$this->addColumn('content', array(

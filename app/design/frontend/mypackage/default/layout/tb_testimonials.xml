@@ -16,10 +16,4 @@
         </reference>
     </tbtestimonials_index_new>
 
-    <tbtestimonials_index_view>
-        <reference name="content">
-            <block type="tbtestimonials/view" name="testimonials.content" template="tb_testimonials/view.phtml"/>
-        </reference>
-    </tbtestimonials_index_view>
-
 </layout>

@@ -1,39 +1,24 @@
 <div class="testimonials-header">
     <h3 class="testimonials-header-title">Add Testimonial</h3>
-    <button class="testi-button"
-            onclick="setLocation('<?php echo $this->getUrl('testimonials') ?>')">
-        <?php echo $this->__('View Testomonials') ?>
-    </button>
 </div>
 <form action="<?php echo $this->getUrl('testimonials/index/post'); ?>" method="post" name="testimonial_form">
     <div>
-        <ul class="form-list">
-            <li>
-                <div>
-                    <label for="user_name" class="required">Name</label>
-                    <div class="input-box">
-                        <input name="user_name" id="user_name" title="Name" value="<?php echo $this->escapeHtml($this->getUserName()) ?>" type="text" />
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <label for="email">Email Address</label>
-                    <div class="input-box">
-                        <input name="email" id="email" title="email" value="" type="text" class="input-text required-entry validate-email" />
-                    </div>
-                </div>
-            </li>
-            <li>
-                <label for="content" class="required">Testimonial Content</label>
-                <div class="input-box">
-                    <textarea name="content" id="content" title="testi_content" cols="5" rows="4"></textarea>
-                </div>
-                <p class="required">* Required Fields</p>
-            </li>
-        </ul>
+        <p>
+            <strong><?php echo Mage::getSingleton('customer/session')->getCustomer()->getName(); ?>, </strong>
+            please fill in the form below to submit your testimonial.</p>
     </div>
-    <div>
-        <button type="submit" class="testi-button text-uppercase">Submit Testimonial</button>
+    <div class="input-box">
+        <label for="content" class="required">Testimonial Content</label>
+        <div>
+            <textarea name="content" id="content" title="Testimonial Content" cols="5" rows="6"></textarea>
+        </div>
+        <p class="required">* Required Field</p>
+    </div>
+    <div class="testi-form-footer">
+        <a class="btn btn-lg btn-link"
+            onclick="setLocation('<?php echo $this->getUrl('testimonials') ?>')">
+            <span>&#x21e6;</span><?php echo $this->__(' Return') ?>
+        </a>
+        <button type="submit" class="testi-button text-uppercase">Submit</button>
     </div>
 </form>

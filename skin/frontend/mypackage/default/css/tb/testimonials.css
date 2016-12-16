@@ -32,6 +32,14 @@ connect in app\design\frontend\mypackage\default\layout\local.xml
     background-color: #6FCFBC;
 }
 
+.testi-form-footer .testi-button {
+    margin-left: 243px;
+}
+
+.testi-form-footer {
+    padding: 15px 0;
+}
+
 /* Content */
 .content {
     font-family: Helvetica, sans-serif;
