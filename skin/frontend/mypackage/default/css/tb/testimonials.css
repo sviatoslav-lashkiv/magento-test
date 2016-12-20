@@ -19,21 +19,13 @@ connect in app\design\frontend\mypackage\default\layout\local.xml
     margin: 0;
 }
 
-.testi-button {
-    border: none;
-    font-size: 14px;
-    color: #fff;
-    font-weight: bold;
-    background-color: #1EBD9D;
-    padding: 6px 15px;
-}
-
 .testi-button:hover {
     background-color: #6FCFBC;
 }
 
-.testi-form-footer .testi-button {
-    margin-left: 243px;
+.testi-form-footer .button {
+    float: right;
+    margin-right: 45px;
 }
 
 .testi-form-footer {

@@ -2,6 +2,9 @@
 <layout>
 
     <tbtestimonials_index_index>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+        </reference>
         <reference name="content">
             <block type="tbtestimonials/testimonials" template="tb_testimonials/index.phtml"/>
         </reference>
@@ -9,7 +12,7 @@
 
     <tbtestimonials_index_new>
         <reference name="root">
-            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+            <action method="setTemplate"><template>page/3columns.phtml</template></action>
         </reference>
         <reference name="content">
             <block type="tbtestimonials/testimonials" template="tb_testimonials/new.phtml" />

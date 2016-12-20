@@ -3,8 +3,8 @@ $testimonials = $this->getTestimonialsCollection();
 $testimonialsViewUrl = Mage::getUrl('testimonials/index/view');
 ?>
     <div class="testimonials-header">
-        <h3 class="testimonials-header-title"><?php echo $this->__('Testimonials') ?></h3>
-        <button class="testi-button text-uppercase"
+        <h2 class="testimonials-header-title"><?php echo $this->__('Testimonials') ?></h2>
+        <button class="button"
                 onclick="setLocation('<?php echo $this->getUrl('testimonials/index/new'); ?>')">
             <?php echo $this->__('Submit Your Testimonial') ?>
         </button>
