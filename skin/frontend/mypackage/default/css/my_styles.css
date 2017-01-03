@@ -10,17 +10,17 @@
     width: 1050px;
 }
 
-button.button, a.button {
+.button {
     font-weight: bold;
-    background-color: #1EBD9D;
+    background-color: #1EBD9D !important;
 }
 
-button.button:hover, a.button:hover {
-    background-color: #6FCFBC;
+.button:hover {
+    background-color: #6FCFBC !important;
 }
 
-button.button:active, button.button:focus {
-    background-color: #1ba186;
+.button:active, .button:focus {
+    background-color: #1ba186 !important;
 }
 
 a {
@@ -52,16 +52,16 @@ HEADER
     color: #535355;
 }
 
-.form-language label {
-    font-weight: bold;
-}
-
 .top-header-lang select {
     border: none;
     background: none;
     color: #6fcfbc;
     outline: none;
     cursor: pointer;
+}
+
+.form-language label {
+    font-weight: bold;
 }
 
 .main-header {
