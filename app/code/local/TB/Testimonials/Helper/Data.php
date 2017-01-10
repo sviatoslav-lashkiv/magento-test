@@ -18,4 +18,13 @@ class TB_Testimonials_Helper_Data extends Mage_Core_Helper_Abstract
         return $output;
     }
 
+    public function selectVisibilityStatus()
+    {
+        return
+            [
+                ['label' => 'Hidden', 'value' => 0],
+                ['label' => 'Visible', 'value' => 1]
+            ];
+    }
+
 }

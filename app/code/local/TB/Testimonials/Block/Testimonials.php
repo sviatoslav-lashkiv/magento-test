@@ -7,6 +7,7 @@ class TB_Testimonials_Block_Testimonials extends Mage_Core_Block_Template
     {
         parent::__construct();
         $testimonialsCollection = Mage::getModel('tbtestimonials/testimonials')->getCollection();
+        $testimonialsCollection->addFieldToFilter('status', 1);
         $testimonialsCollection->setOrder('created', 'DESC');
         $this->setTestimonialsCollection($testimonialsCollection);
         return $this;

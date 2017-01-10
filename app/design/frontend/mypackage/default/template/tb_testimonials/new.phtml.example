@@ -1,5 +1,5 @@
-<div class="page-title">
-    <h1><?php echo $this->__('Add Testimonial') ?></h1>
+<div class="testimonials-header">
+    <h3 class="testimonials-header-title">Add Testimonial</h3>
 </div>
 <form action="<?php echo $this->getUrl('testimonials/index/post'); ?>" method="post" name="testimonial_form">
     <div>
@@ -14,13 +14,11 @@
         </div>
         <p class="required">* Required Field</p>
     </div>
-    <div class="buttons-set">
-        <button type="submit" class="button testi-button"><?php echo $this->__('Submit Testimonial') ?></button>
-        <button type="button"
-                title="<?php echo $this->quoteEscape($this->__('Close Window')) ?>"
-                class="btn btn-link"
-                onclick="window.close();">
-            <span>&#x21e6; </span><?php echo $this->__('Close Window') ?>
-        </button>
+    <div class="testi-form-footer">
+        <a class="btn btn-lg btn-link"
+            onclick="setLocation('<?php echo $this->getUrl('testimonials') ?>')">
+            <span>&#x21e6;</span><?php echo $this->__(' Return') ?>
+        </a>
+        <button type="submit" class="button testi-button">Submit</button>
     </div>
 </form>

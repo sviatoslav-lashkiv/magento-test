@@ -37,6 +37,11 @@ class TB_Testimonials_Block_Adminhtml_Testimonials_Grid extends Mage_Adminhtml_B
             'type' => 'date',
         ));
 
+        $this->addColumn('created', array(
+            'header' => $helper->__('Visibility'),
+            'index' => 'status'
+        ));
+
         return parent::_prepareColumns();
     }
 	

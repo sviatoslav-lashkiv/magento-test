@@ -5,9 +5,19 @@ class TB_Testimonials_IndexController extends Mage_Core_Controller_Front_Action
 
     public function indexAction()
     {
+        $isLoggedIn = Mage::getSingleton('customer/session')->isLoggedIn();
+        if (!$isLoggedIn) {
+            $loginLink = Mage::helper('customer')->getLoginUrl();
+            Mage::getSingleton('core/session')->addError(
+                Mage::helper('tbtestimonials')->
+                __('Add testimonials can only registered users. <a href="%s">Please Login or Register</a>', $loginLink)
+            );
+        }
+
         $this->loadLayout();
         $this->renderLayout();
     }
+
 
     public function newAction()
     {
@@ -21,12 +31,13 @@ class TB_Testimonials_IndexController extends Mage_Core_Controller_Front_Action
             $loginLink = Mage::helper('customer')->getLoginUrl();
             Mage::getSingleton('core/session')->addError(
                 Mage::helper('tbtestimonials')->
-                    __( 'Add testimonials can only registered users. <a href="%s">Please Login or Register</a>', $loginLink)
+                __('Add testimonials can only registered users. <a href="%s">Please Login or Register</a>', $loginLink)
             );
             return;
         }
 
     }
+
 
     public function postAction()
     {
@@ -35,7 +46,7 @@ class TB_Testimonials_IndexController extends Mage_Core_Controller_Front_Action
 
         if (!$data['content']) {
             Mage::getSingleton('core/session')->addError(
-                Mage::helper('tbtestimonials')->__('Please, fill all required fields.')
+                Mage::helper('tbtestimonials')->__('Please, fill required field.')
             );
             $this->_redirectReferer();
             return;

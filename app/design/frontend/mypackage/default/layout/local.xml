@@ -30,6 +30,10 @@
                 <params/>
             </action>
             <action method="addItem">
+                <type>js</type>
+                <name>prototype/window.js</name>
+            </action>
+            <action method="addItem">
                 <type>skin_js</type>
                 <name>js/bootstrap.min.js</name>
                 <params/>
@@ -41,6 +45,14 @@
             </action>
 
             <!--Adding CSS Files Styles-->
+            <action method="addItem">
+                <type>js_css</type>
+                <name>prototype/windows/themes/default.css</name>
+            </action>
+            <action method="addItem">
+                <type>js_css</type>
+                <name>prototype/windows/themes/magento.css</name>
+            </action>
             <action method="addCss">
                 <stylesheet>css/bootstrap.min.css</stylesheet>
                 <params/>
@@ -54,6 +66,7 @@
                 <params/>
             </action>
 
+            <block type="core/template" name="testimonials_form" template="tb_testimonials/testimonials_form.phtml"/>
 
         </reference>
 

@@ -22,16 +22,10 @@ connect in app\design\frontend\mypackage\default\layout\local.xml
 .testi-button:hover {
     background-color: #6FCFBC;
 }
-
-.testi-form-footer .button {
-    float: right;
-    margin-right: 45px;
+.input-box {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
-
-.testi-form-footer {
-    padding: 15px 0;
-}
-
 /* Content */
 .content {
     font-family: Helvetica, sans-serif;

@@ -1,14 +1,30 @@
 <?php
 $testimonials = $this->getTestimonialsCollection();
 $testimonialsViewUrl = Mage::getUrl('testimonials/index/view');
+$isLoggedIn = Mage::getSingleton('customer/session')->isLoggedIn();
 ?>
-    <div class="testimonials-header">
-        <h2 class="testimonials-header-title"><?php echo $this->__('Testimonials') ?></h2>
-        <button class="button"
-                onclick="setLocation('<?php echo $this->getUrl('testimonials/index/new'); ?>')">
-            <?php echo $this->__('Submit Your Testimonial') ?>
-        </button>
+
+<div class="testimonials-header">
+    <h2 class="testimonials-header-title"><?php echo $this->__('Testimonials') ?></h2>
+    <div>
+    <button
+        <?php
+        echo $isLoggedIn
+            ? "data-toggle='modal' data-target='#testimonialModal' class='button'"
+            : "class='button disabled' title='Please Log In'";
+        ?>
+    >
+        <?php echo $this->__('Bootstrap.js') ?>
+    </button>
+    <button class="button <?php echo !$isLoggedIn ? "disabled" : ""; ?>"
+            id="btn-testi"
+            title="<?php echo $this->__('New Testimonial') ?>"
+            type="button">
+        <?php echo $this->__('Magento Window.js') ?>
+    </button>
     </div>
+</div>
+
 
 <?php foreach ($testimonials as $item): ?>
     <div class="content">
@@ -21,4 +37,23 @@ $testimonialsViewUrl = Mage::getUrl('testimonials/index/view');
         </span>
     </div>
 <?php endforeach; ?>
+
+<!-- Pager Block -->
 <?php echo $this->getPagerHtml(); ?>
+
+<!-- Modal BOOTSTRAP Window "New Testimonial"  -->
+<?php echo $this->getChildHtml('testimonials_form'); ?>
+
+<script type="text/javascript">
+    $("#btn-testi")
+        .not(".disabled")
+        .on("click", function () {
+            var winW = (screen.width/2)-300;
+            var winH = (screen.height/2)-225;
+            popWin(
+                '<?php echo $this->getUrl('testimonials/index/new'); ?>',
+                'newTestimonial',
+                'left=' + winW + ',top=' +winH+ ',width=600,height=450'
+            )
+        });
+</script>

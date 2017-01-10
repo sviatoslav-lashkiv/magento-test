@@ -1,0 +1,37 @@
+<div class="modal fade" id="testimonialModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="testimonials-header-title">Add Testimonial</h3>
+            </div>
+
+            <form action="<?php echo $this->getUrl('testimonials/index/post'); ?>" method="post"
+                  name="testimonial_form" id="testimonial_form">
+                <div class="modal-body">
+                    <div>
+                        <p>
+                            <strong><?php echo Mage::getSingleton('customer/session')->getCustomer()->getName() .', '; ?></strong>
+                            please fill in the form below to submit your testimonial.</p>
+                    </div>
+                    <div class="input-box">
+                        <label for="content" class="required">Testimonial Content</label>
+                        <div>
+                            <textarea name="content" id="content" title="Testimonial Content" cols="5" rows="6"></textarea>
+                        </div>
+                        <p class="required">* Required Field</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link pull-left" data-dismiss="modal">
+                        <span>&#x21e6;</span><?php echo $this->__(' Return') ?>
+                    </button>
+                    <button class="button testi-button">Submit Testimonial</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

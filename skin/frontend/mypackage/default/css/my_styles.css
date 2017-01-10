@@ -1,9 +1,10 @@
 /* GLOBAL */
 .wrapper {
-    background: #ececec url("../images/background.jpg") !important;
+    background: #ececec url("../images/background.jpg") repeat !important;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-    color: #636363
+    color: #636363;
+    min-width: 1050px !important;
 }
 
 .container {
@@ -82,9 +83,16 @@ HEADER
     color: #ececec;
 }
 
-.welcome-title p {
+.welcome-title {
+    height: 50px;
     line-height: 50px;
-    padding-left: 20px;
+}
+
+.welcome-title p {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+
     margin: 0;
 }
 
@@ -233,15 +241,19 @@ CONTENT BLOCK
 }
 
 /* Block Content */
-.block-content .product-name a:hover {
-    color: #1EBD9D;
+.block-content a:hover {
+    color: #1EBD9D !important;
+    text-decoration: none;
 }
 
-.product-name a:active,
-.product-name a:visited {
-    color: #636363;
+.block-content a:active,
+.block-content a:visited {
+    color: #636363 !important;
 }
 
+.block-account li strong {
+    color: #1EBD9D !important;
+}
 .actions a {
     color: #1EBD9D;
 }

@@ -35,6 +35,14 @@ class TB_Testimonials_Block_Adminhtml_Testimonials_Edit_Form extends Mage_Adminh
             'name' => 'content',
         ));
 
+        $fieldset->addField('status', 'select', array(
+            'label' => $helper->__('Visibility'),
+            'title' => $helper->__('Please Select'),
+            'name' => $helper->__('status'),
+            'required' => true,
+            'values' => $helper->selectVisibilityStatus (),
+        ));
+
         $fieldset->addField('created', 'date', array(
             'format' => Mage::app()->getLocale()->getDateFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT),
             'image' => $this->getSkinUrl('images/grid-cal.gif'),
