@@ -45,14 +45,6 @@
             </action>
 
             <!--Adding CSS Files Styles-->
-            <action method="addItem">
-                <type>js_css</type>
-                <name>prototype/windows/themes/default.css</name>
-            </action>
-            <action method="addItem">
-                <type>js_css</type>
-                <name>prototype/windows/themes/magento.css</name>
-            </action>
             <action method="addCss">
                 <stylesheet>css/bootstrap.min.css</stylesheet>
                 <params/>

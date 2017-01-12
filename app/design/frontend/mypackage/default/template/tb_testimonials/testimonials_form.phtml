@@ -8,30 +8,82 @@
                 <h3 class="testimonials-header-title">Add Testimonial</h3>
             </div>
 
-            <form action="<?php echo $this->getUrl('testimonials/index/post'); ?>" method="post"
-                  name="testimonial_form" id="testimonial_form">
+            <form method="post" name="testimonial_form" id="testimonial_form">
                 <div class="modal-body">
                     <div>
                         <p>
-                            <strong><?php echo Mage::getSingleton('customer/session')->getCustomer()->getName() .', '; ?></strong>
+                            <strong><?php echo Mage::getSingleton('customer/session')->getCustomer()->getName() . ', '; ?></strong>
                             please fill in the form below to submit your testimonial.</p>
                     </div>
                     <div class="input-box">
                         <label for="content" class="required">Testimonial Content</label>
                         <div>
-                            <textarea name="content" id="content" title="Testimonial Content" cols="5" rows="6"></textarea>
+                            <textarea name="content" id="content" class="validate-alphanum" title="Testimonial Content"
+                                      cols="5" rows="6"></textarea>
                         </div>
                         <p class="required">* Required Field</p>
                     </div>
+                    <ul class="messages">
+                        <li class="error-msg" style="display:none">
+                            <ul>
+                                <li><span></span></li>
+                            </ul>
+                        </li>
+                        <li class="success-msg" style="display:none">
+                            <ul>
+                                <li><span></span></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-link pull-left" data-dismiss="modal">
-                        <span>&#x21e6;</span><?php echo $this->__(' Return') ?>
+                        <span>&#x21e6;</span><?php echo $this->__(' Close Window') ?>
                     </button>
-                    <button class="button testi-button">Submit Testimonial</button>
+                    <button class="button testi-button pull-right" type="submit" onclick="return addTestimonial()">
+                        <div class="waiting"></div>
+                        <?php echo $this->__('Submit Testimonial') ?>
+                    </button>
                 </div>
             </form>
 
         </div>
     </div>
 </div>
+
+<script>
+    function addTestimonial() {
+        var url = "<?php echo $this->getUrl('testimonials/index/post'); ?>";
+        var formData = $('#testimonial_form').serialize();
+        var testiButton = $("#testimonialModal .testi-button");
+        var waiting = $("#testimonialModal .waiting")
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: formData,
+            dataType: 'json',
+            beforeSend: function () {
+                waiting.show();
+                testiButton.attr('disabled', 'disabled');
+            },
+            success: function (data) {
+                if (data.success) {
+                    $("#testimonialModal .success-msg span").text(data.messages);
+                    $("#testimonialModal .success-msg").show(500).delay(2000).hide(500);
+                    $("#testimonialModal #content").val("");
+                } else {
+                    $("#testimonialModal .error-msg span").text(data.messages);
+                    $("#testimonialModal .error-msg").show(500).delay(2200).hide(500);
+                }
+            },
+            error: function (xhr, str) {
+                alert("Oops. Something went wrong. Please try again later.");
+            },
+            complete: function () {
+                testiButton.removeAttr('disabled');
+                waiting.hide();
+            }
+        });
+        return false;
+    }
+</script>

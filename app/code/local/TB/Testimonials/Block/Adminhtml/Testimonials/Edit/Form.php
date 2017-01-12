@@ -48,7 +48,6 @@ class TB_Testimonials_Block_Adminhtml_Testimonials_Edit_Form extends Mage_Adminh
             'image' => $this->getSkinUrl('images/grid-cal.gif'),
             'label' => $helper->__('Created'),
             'name' => 'created',
-            'value' => $helper->__('TEXTTEXT'),
         ));
 
         $form->setUseContainer(true);

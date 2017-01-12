@@ -44,15 +44,12 @@ class TB_Testimonials_IndexController extends Mage_Core_Controller_Front_Action
         $this->_initLayoutMessages('core/session');
         $data = $this->getRequest()->getPost();
 
-        if (!$data['content']) {
-            Mage::getSingleton('core/session')->addError(
-                Mage::helper('tbtestimonials')->__('Please, fill required field.')
-            );
-            $this->_redirectReferer();
-            return;
-        }
+        $result = array();
 
-        if ($data) {
+        if (!$data['content']) {
+            $result['success'] = false;
+            $result['messages'] = $this->__('Please, fill required field.');
+        } else {
             try {
                 $model = Mage::getModel('tbtestimonials/testimonials');
                 $model->setStorelId(Mage::app()->getStore()->getStoreId());
@@ -60,15 +57,14 @@ class TB_Testimonials_IndexController extends Mage_Core_Controller_Front_Action
                 $model->setCreated(now());
                 $model->setContent($data['content']);
                 $model->save();
-                Mage::getSingleton('core/session')->addSuccess($this->__('Testimonial was saved successfully'));
+                $result['success'] = true;
+                $result['messages'] = $this->__('Testimonial was saved successfully. It will be added after moderation.');
             } catch (Exception $e) {
-                Mage::getSingleton('core/session')->addError($e->getMessage());
-                Mage::getSingleton('core/session')->setFormData($data);
-                $this->_redirectReferer();
-                return;
+                $result['success'] = false;
+                $result['messages'] = $this->__($e->getMessage());
             }
         }
-        $this->_redirect('*/*/');
+        return $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
     }
 
 }
