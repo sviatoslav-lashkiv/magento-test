@@ -75,5 +75,24 @@
                 </setup>
             </tbtestimonials_setup>
         </resources>
+        <events>
+            <testimonial_status_save_after>
+                <observers>
+                    <testimonial_status_mail>
+                        <class>tbtestimonials/observer</class>
+                        <method>testimonialStatusMail</method>
+                    </testimonial_status_mail>
+                </observers>
+            </testimonial_status_save_after>
+        </events>
+        <template>
+            <email>
+                <testimonial_status_tpl module="TB_Testimonial">
+                    <label>Testimonial Status Email</label>
+                    <file>testimonial_status.html</file>
+                    <type>html</type>
+                </testimonial_status_tpl>
+            </email>
+        </template>
     </global>
 </config>
